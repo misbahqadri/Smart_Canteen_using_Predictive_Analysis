@@ -19,9 +19,17 @@ def reslogin(request):
     newinput = Can(name = username, email = email)
     newinput.save()
     return render(request, "shop/second.html", {'form':form})
-
+    #changed
+#def main1(request):
+ #   return render(request,'shop/restaurants.html')
 def main1(request):
-    return render(request,'shop/restaurants.html')
+    return render(request,'shop/signup_color.html')
+
+#def main1(request):
+ #   return render(request,'shop/seat_booking.html')
+
+def register_form(request):
+    return render(request,'shop/login.html')
 
 def index(request):
     allProds = []
@@ -165,12 +173,13 @@ def productView(request, myid):
 def handeLogin(request):
     if request.method == "POST":
         # Get the post parameters
-        loginusername = request.POST['loginusername']
-        loginpassword = request.POST['loginpassword']
+        loginusername = request.POST.get('loginusername')
+        loginpassword = request.POST.get('loginpassword')
 
         user = authenticate(username=loginusername, password=loginpassword)
         if user is not None:
             login(request, user)
+            print("success")
             messages.success(request, "Successfully Logged In")
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
         else:
@@ -183,13 +192,13 @@ def handeLogin(request):
 def handleSignUp(request):
     if request.method == "POST":
         # Get the post parameters
-        username = request.POST['username']
-        f_name = request.POST['f_name']
-        l_name = request.POST['l_name']
-        email = request.POST['email1']
-        phone = request.POST['phone']
-        password = request.POST['password']
-        password1 = request.POST['password1']
+        username = request.POST.get('username')
+        f_name = request.POST.get('f_name')
+        l_name = request.POST.get('l_name')
+        email = request.POST.get('email1')
+        phone = request.POST.get('phone')
+        password = request.POST.get('password')
+        password1 = request.POST.get('password1')
 
         # check for errorneous input
         if (password1 != password):

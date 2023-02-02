@@ -1,15 +1,16 @@
 .dashboard #content-main {
-    float: left;
+    float: center;
     width: 182%;
 }
 .dashboard #content-related {
-    float: right;
+    float: center;
     width: 317px;
     position: relative;
     margin-right: -328px;
 }
 .login {
     background: #a25757d9 !important;
+    position:relative;
 }
 .login #header {
     background:rgb(17, 17, 105);
@@ -27,6 +28,7 @@ input[type="submit"] {
 }
 form#login-form {
     font-weight: bold;
+    float :center;
 }
 .module caption {
     background: #354750;
